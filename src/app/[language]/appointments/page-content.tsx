@@ -8,13 +8,7 @@ import { Separator } from "@radix-ui/react-separator";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import styles from "./Appointments.module.css";
-import {
-  ChevronLeft,
-  ChevronRight,
-  Clock,
-  Video,
-  Globe,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, Clock, Video, Globe } from "lucide-react";
 
 // ---------------------------------------------------------------------------
 // Static data describing the event type being booked.
@@ -81,9 +75,6 @@ export default function Appointments() {
     };
 
     confirm();
-
-    // Do not add user to the dependencies
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router, enqueueSnackbar, t]);
 
   const selectedDateLabel = selectedDate.toLocaleDateString("en-US", {
@@ -108,6 +99,7 @@ export default function Appointments() {
         variant: "success",
       });
     } catch (error) {
+      console.error(error);
       enqueueSnackbar(t("appointment.error", "Could not book appointment"), {
         variant: "error",
       });
@@ -121,11 +113,11 @@ export default function Appointments() {
       <div className="grid w-full grid-cols-1 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm md:grid-cols-[280px_1fr_240px]">
         {/* Host / event info panel */}
         <div className="flex flex-col bg-slate-50 p-6">
-          <img
+          {/* <img
             src={HOST.avatarUrl}
             alt={HOST.name}
             className="h-16 w-16 rounded-full object-cover ring-2 ring-white"
-          />
+          /> */}
 
           <div className="mt-4">
             <p className="text-sm font-medium text-gray-900">{HOST.name}</p>

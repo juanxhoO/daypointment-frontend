@@ -27,18 +27,78 @@ type DayRow = {
 };
 
 const INITIAL_DAYS: DayRow[] = [
-  { id: "sun", label: "Sunday", enabled: false, start: "09:00 AM", end: "05:00 PM" },
-  { id: "mon", label: "Monday", enabled: true, start: "09:00 AM", end: "05:00 PM" },
-  { id: "tue", label: "Tuesday", enabled: true, start: "09:00 AM", end: "05:00 PM" },
-  { id: "wed", label: "Wednesday", enabled: true, start: "09:00 AM", end: "05:00 PM" },
-  { id: "thu", label: "Thursday", enabled: true, start: "09:00 AM", end: "05:00 PM" },
-  { id: "fri", label: "Friday", enabled: true, start: "09:00 AM", end: "05:00 PM" },
-  { id: "sat", label: "Saturday", enabled: false, start: "09:00 AM", end: "05:00 PM" },
+  {
+    id: "sun",
+    label: "Sunday",
+    enabled: false,
+    start: "09:00 AM",
+    end: "05:00 PM",
+  },
+  {
+    id: "mon",
+    label: "Monday",
+    enabled: true,
+    start: "09:00 AM",
+    end: "05:00 PM",
+  },
+  {
+    id: "tue",
+    label: "Tuesday",
+    enabled: true,
+    start: "09:00 AM",
+    end: "05:00 PM",
+  },
+  {
+    id: "wed",
+    label: "Wednesday",
+    enabled: true,
+    start: "09:00 AM",
+    end: "05:00 PM",
+  },
+  {
+    id: "thu",
+    label: "Thursday",
+    enabled: true,
+    start: "09:00 AM",
+    end: "05:00 PM",
+  },
+  {
+    id: "fri",
+    label: "Friday",
+    enabled: true,
+    start: "09:00 AM",
+    end: "05:00 PM",
+  },
+  {
+    id: "sat",
+    label: "Saturday",
+    enabled: false,
+    start: "09:00 AM",
+    end: "05:00 PM",
+  },
 ];
 
-const BEFORE_EVENT_OPTIONS = ["None", "5 minutes", "10 minutes", "15 minutes", "30 minutes"];
-const AFTER_EVENT_OPTIONS = ["None", "5 minutes", "10 minutes", "15 minutes", "30 minutes"];
-const MIN_NOTICE_OPTIONS = ["1 hour", "2 hours", "4 hours", "12 hours", "24 hours"];
+const BEFORE_EVENT_OPTIONS = [
+  "None",
+  "5 minutes",
+  "10 minutes",
+  "15 minutes",
+  "30 minutes",
+];
+const AFTER_EVENT_OPTIONS = [
+  "None",
+  "5 minutes",
+  "10 minutes",
+  "15 minutes",
+  "30 minutes",
+];
+const MIN_NOTICE_OPTIONS = [
+  "1 hour",
+  "2 hours",
+  "4 hours",
+  "12 hours",
+  "24 hours",
+];
 const MAX_ADVANCE_OPTIONS = ["30 days", "60 days", "90 days", "6 months"];
 
 // ---------------------------------------------------------------------------
@@ -71,7 +131,12 @@ function Toggle({
           checked ? "translate-x-[22px]" : "translate-x-[2px]",
         ].join(" ")}
       >
-        {checked && <CheckCircle2 className="h-3.5 w-3.5 text-blue-600" strokeWidth={2.5} />}
+        {checked && (
+          <CheckCircle2
+            className="h-3.5 w-3.5 text-blue-600"
+            strokeWidth={2.5}
+          />
+        )}
       </span>
     </button>
   );
@@ -90,7 +155,9 @@ function Dropdown({
 }) {
   return (
     <div>
-      <label className="mb-1.5 block text-sm font-medium text-gray-700">{label}</label>
+      <label className="mb-1.5 block text-sm font-medium text-gray-700">
+        {label}
+      </label>
       <div className="relative">
         <select
           value={value}
@@ -184,10 +251,18 @@ export default function Availability() {
           <p className="text-base text-gray-500">Working Hours Schedule</p>
         </div>
         <div className="flex items-center gap-5">
-          <button type="button" aria-label="Notifications" className="text-gray-500 hover:text-gray-700">
+          <button
+            type="button"
+            aria-label="Notifications"
+            className="text-gray-500 hover:text-gray-700"
+          >
             <Bell className="h-5 w-5" />
           </button>
-          <button type="button" aria-label="Help" className="text-gray-500 hover:text-gray-700">
+          <button
+            type="button"
+            aria-label="Help"
+            className="text-gray-500 hover:text-gray-700"
+          >
             <HelpCircle className="h-5 w-5" />
           </button>
           <img
@@ -232,7 +307,9 @@ export default function Availability() {
             <div className="flex items-center justify-between border-b border-gray-100 px-6 py-5">
               <div className="flex items-center gap-2">
                 <CalendarDays className="h-5 w-5 text-blue-700" />
-                <h3 className="text-lg font-bold text-gray-900">Default Schedule</h3>
+                <h3 className="text-lg font-bold text-gray-900">
+                  Default Schedule
+                </h3>
               </div>
               <button
                 type="button"
@@ -314,7 +391,8 @@ export default function Availability() {
                 <h3 className="text-lg font-bold text-gray-900">Buffer Time</h3>
               </div>
               <p className="mb-5 text-sm text-gray-500">
-                Prevent back-to-back meetings by adding time before or after each event.
+                Prevent back-to-back meetings by adding time before or after
+                each event.
               </p>
               <div className="flex flex-col gap-4">
                 <Dropdown
@@ -335,7 +413,9 @@ export default function Availability() {
             <div className="rounded-2xl border border-gray-200 bg-white p-6">
               <div className="mb-2 flex items-center gap-2">
                 <BellRing className="h-5 w-5 text-blue-700" />
-                <h3 className="text-lg font-bold text-gray-900">Scheduling Notice</h3>
+                <h3 className="text-lg font-bold text-gray-900">
+                  Scheduling Notice
+                </h3>
               </div>
               <p className="mb-5 text-sm text-gray-500">
                 Set a minimum notice period to avoid last-minute surprises.

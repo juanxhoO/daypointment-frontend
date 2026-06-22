@@ -8,9 +8,9 @@ import useAuth from "@/services/auth/use-auth";
 import useAuthActions from "@/services/auth/use-auth-actions";
 import { useTranslation } from "@/services/i18n/client";
 import Link from "@/components/link";
-import { RoleEnum } from "@/services/api/types/role";
+// import { RoleEnum } from "@/services/api/types/role";
 import { IS_SIGN_UP_ENABLED } from "@/services/auth/config";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+// import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -114,7 +114,6 @@ function NavUser() {
             align="start"
             className="w-(--radix-dropdown-menu-trigger-width) min-w-56"
           >
-
             <DropdownMenuItem asChild data-testid="user-profile">
               <Link href="/team">{t("common:navigation.profile")}</Link>
             </DropdownMenuItem>
@@ -140,7 +139,7 @@ function AppSidebar() {
   const { user } = useAuth();
   const pathname = usePathname();
 
-  const isAdmin = true
+  const isAdmin = true;
   return (
     <>
       <CloseSidebarOnNavigate />
@@ -175,9 +174,7 @@ function AppSidebar() {
                         asChild
                         isActive={pathname.includes("/admin-panel/users")}
                       >
-                        <Link href="/admin-panel/users">
-                          Events
-                        </Link>
+                        <Link href="/admin-panel/users">Events</Link>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
                     <SidebarMenuItem>
@@ -185,10 +182,7 @@ function AppSidebar() {
                         asChild
                         isActive={pathname.includes("/admin-panel/users")}
                       >
-                        <Link href="/admin-panel/users">
-                          Availability
-                        </Link>
-
+                        <Link href="/admin-panel/users">Availability</Link>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
                     {/* sidebar-menu-items */}
@@ -204,14 +198,10 @@ function AppSidebar() {
               asChild
               isActive={pathname.includes("/admin-panel/users")}
             >
-              <Link href="/admin-panel/users">
-                Availability
-              </Link>
-
+              <Link href="/admin-panel/users">Availability</Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
           <NavUser />
-
         </SidebarFooter>
       </Sidebar>
     </>
