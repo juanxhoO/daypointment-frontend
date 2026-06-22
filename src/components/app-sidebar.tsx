@@ -172,17 +172,17 @@ function AppSidebar() {
                     <SidebarMenuItem>
                       <SidebarMenuButton
                         asChild
-                        isActive={pathname.includes("/admin-panel/users")}
+                        isActive={pathname.includes("/admin-panel/events")}
                       >
-                        <Link href="/admin-panel/users">Events</Link>
+                        <Link href="/admin-panel/events">Events</Link>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
                     <SidebarMenuItem>
                       <SidebarMenuButton
                         asChild
-                        isActive={pathname.includes("/admin-panel/users")}
+                        isActive={pathname.includes("/admin-panel/availabilities")}
                       >
-                        <Link href="/admin-panel/users">Availability</Link>
+                        <Link href="/admin-panel/availabilities">Availabilities</Link>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
                     {/* sidebar-menu-items */}
@@ -198,7 +198,7 @@ function AppSidebar() {
               asChild
               isActive={pathname.includes("/admin-panel/users")}
             >
-              <Link href="/admin-panel/users">Availability</Link>
+              <Link href="/admin-panel/users">Settings</Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
           <NavUser />

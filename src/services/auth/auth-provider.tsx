@@ -22,6 +22,16 @@ import {
   setTokensInfo as setTokensInfoToStorage,
 } from "./auth-tokens-info";
 
+const MOCK_USER: User = {
+  id: "12",
+  email: "juan@example.com",
+  role: {
+    id: 1,
+    name: "ADMIN",
+  },
+  firstName: "Juan",
+  lastName: "Perez",
+};
 function AuthProvider(props: PropsWithChildren) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [user, setUser] = useState<User | null>(null);
@@ -45,8 +55,13 @@ function AuthProvider(props: PropsWithChildren) {
     }
     setTokensInfo(null);
   }, [setTokensInfo, fetchBase]);
-
   const loadData = useCallback(async () => {
+    if (process.env.NEXT_PUBLIC_MOCK_AUTH === "true") {
+      setUser(MOCK_USER);
+      setIsLoaded(true);
+      return;
+    }
+
     const tokens = getTokensInfo();
 
     try {

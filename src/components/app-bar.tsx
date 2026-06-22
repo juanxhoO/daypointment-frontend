@@ -4,7 +4,10 @@ import Link from "@/components/link";
 import ThemeSwitchButton from "@/components/switch-theme-button";
 import LanguageSwitcher from "@/components/language-switcher";
 import { SidebarTrigger } from "@/components/ui/sidebar";
-
+import {
+  Bell,
+  HelpCircle
+} from "lucide-react";
 function ResponsiveAppBar() {
   const { t } = useTranslation("common");
 
@@ -26,6 +29,20 @@ function ResponsiveAppBar() {
         </Link>
 
         <div className="flex items-center gap-2">
+          <button
+            type="button"
+            aria-label="Notifications"
+            className="text-gray-500 hover:text-gray-700"
+          >
+            <Bell className="h-5 w-5" />
+          </button>
+          <button
+            type="button"
+            aria-label="Help"
+            className="text-gray-500 hover:text-gray-700"
+          >
+            <HelpCircle className="h-5 w-5" />
+          </button>
           <ThemeSwitchButton />
           <LanguageSwitcher />
         </div>
