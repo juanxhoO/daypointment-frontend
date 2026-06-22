@@ -1,0 +1,87 @@
+.datepicker :global(.react-datepicker) {
+  font-family: inherit;
+  border: none;
+  width: 100%;
+  background: transparent;
+}
+
+.datepicker :global(.react-datepicker__month-container) {
+  width: 100%;
+  float: none;
+}
+
+.datepicker :global(.react-datepicker__header) {
+  background: transparent;
+  border-bottom: none;
+  padding: 0;
+}
+
+.datepicker :global(.react-datepicker__day-names) {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-top: 0.5rem;
+}
+
+.datepicker :global(.react-datepicker__day-name) {
+  width: auto;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.datepicker :global(.react-datepicker__month) {
+  margin: 0;
+}
+
+.datepicker :global(.react-datepicker__week) {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.datepicker :global(.react-datepicker__day) {
+  width: 2.25rem;
+  height: 2.25rem;
+  line-height: 2.25rem;
+  margin: 0.125rem auto;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  color: #1d4ed8;
+  background: #eff6ff;
+}
+
+.datepicker :global(.react-datepicker__day:hover) {
+  background: #dbeafe;
+  border-radius: 9999px;
+}
+
+.datepicker :global(.react-datepicker__day--outside-month) {
+  visibility: hidden;
+}
+
+.datepicker :global(.react-datepicker__day--disabled) {
+  color: #d1d5db;
+  background: transparent;
+  cursor: not-allowed;
+}
+
+.datepicker :global(.react-datepicker__day--disabled:hover) {
+  background: transparent;
+}
+
+.datepicker :global(.react-datepicker__day--selected),
+.datepicker :global(.react-datepicker__day--keyboard-selected) {
+  background: #1d4ed8;
+  color: #fff;
+  font-weight: 600;
+}
+
+.datepicker :global(.react-datepicker__day--selected:hover),
+.datepicker :global(.react-datepicker__day--keyboard-selected:hover) {
+  background: #1e40af;
+}
+
+.datepicker :global(.react-datepicker__day--today:not(.react-datepicker__day--selected)) {
+  font-weight: 600;
+}

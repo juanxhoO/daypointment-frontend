@@ -60,7 +60,7 @@ function NavUser() {
     );
   }
 
-  if (!user) {
+  if (user) {
     return (
       <SidebarMenu>
         <SidebarMenuItem>
@@ -79,9 +79,9 @@ function NavUser() {
     );
   }
 
-  const fullName = `${user.firstName ?? ""} ${user.lastName ?? ""}`.trim();
-  const initials =
-    `${user.firstName?.[0] ?? ""}${user.lastName?.[0] ?? ""}`.toUpperCase();
+  // const fullName = `${user.firstName ?? ""} ${user.lastName ?? ""}`.trim();
+  // const initials =
+  //   `${user.firstName?.[0] ?? ""}${user.lastName?.[0] ?? ""}`.toUpperCase();
 
   return (
     <SidebarMenu>
@@ -94,7 +94,7 @@ function NavUser() {
               data-testid="profile-menu-item"
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
             >
-              <Avatar className="size-8 rounded-lg">
+              {/* <Avatar className="size-8 rounded-lg">
                 <AvatarImage src={user.photo?.path} alt={fullName} />
                 <AvatarFallback className="rounded-lg">
                   {initials}
@@ -105,7 +105,7 @@ function NavUser() {
                 <span className="truncate text-xs text-sidebar-foreground/70">
                   {user.email}
                 </span>
-              </div>
+              </div> */}
               <ChevronsUpDown className="ms-auto size-4" />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
@@ -114,8 +114,13 @@ function NavUser() {
             align="start"
             className="w-(--radix-dropdown-menu-trigger-width) min-w-56"
           >
+
             <DropdownMenuItem asChild data-testid="user-profile">
-              <Link href="/profile">{t("common:navigation.profile")}</Link>
+              <Link href="/team">{t("common:navigation.profile")}</Link>
+            </DropdownMenuItem>
+
+            <DropdownMenuItem asChild data-testid="user-profile">
+              <Link href="/settings">{t("common:navigation.profile")}</Link>
             </DropdownMenuItem>
             <DropdownMenuItem
               data-testid="logout-menu-item"
@@ -135,9 +140,7 @@ function AppSidebar() {
   const { user } = useAuth();
   const pathname = usePathname();
 
-  const isAdmin =
-    !!user?.role && [RoleEnum.ADMIN].includes(Number(user?.role?.id));
-
+  const isAdmin = true
   return (
     <>
       <CloseSidebarOnNavigate />
@@ -167,6 +170,27 @@ function AppSidebar() {
                         </Link>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
+                    <SidebarMenuItem>
+                      <SidebarMenuButton
+                        asChild
+                        isActive={pathname.includes("/admin-panel/users")}
+                      >
+                        <Link href="/admin-panel/users">
+                          Events
+                        </Link>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                    <SidebarMenuItem>
+                      <SidebarMenuButton
+                        asChild
+                        isActive={pathname.includes("/admin-panel/users")}
+                      >
+                        <Link href="/admin-panel/users">
+                          Availability
+                        </Link>
+
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
                     {/* sidebar-menu-items */}
                   </>
                 )}
@@ -175,7 +199,19 @@ function AppSidebar() {
           </SidebarGroup>
         </SidebarContent>
         <SidebarFooter>
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              asChild
+              isActive={pathname.includes("/admin-panel/users")}
+            >
+              <Link href="/admin-panel/users">
+                Availability
+              </Link>
+
+            </SidebarMenuButton>
+          </SidebarMenuItem>
           <NavUser />
+
         </SidebarFooter>
       </Sidebar>
     </>
